@@ -13,6 +13,7 @@
     "styled-components": "^5"
   },
   "dependencies": {
+    "@aws-sdk/client-cognito-identity": "^3.254.0",
     "@next/font": "13.1.4",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",

@@ -4,4 +4,7 @@ export const TopHeaderDiv = styled.header`
   display: flex;
   padding: 10px;
   font-weight: bold;
+  a {
+    text-decoration: none;
+  }
 `;

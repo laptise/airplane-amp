@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev -p 12000",
     "emul": "node server.js",
-    "build": "next build",
-    "start": "next start",
+    "build": "npx next build",
+    "start": "npx next start",
+    "zip": "sh zip.sh",
     "lint": "next lint"
   },
   "resolutions": {
@@ -26,7 +27,6 @@
     "eslint-config-next": "13.1.4",
     "express": "^4.18.2",
     "next": "13.1.4",
-    "next-auth": "^4.19.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "styled-components": "^5.3.6",

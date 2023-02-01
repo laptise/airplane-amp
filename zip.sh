@@ -1,2 +1,3 @@
 yarn build
-zip -r .next/deploy.zip .next package.json
+mkdir deploy
+zip -r deploy/deploy.zip .next package.json

@@ -1,2 +1,2 @@
 mkdir deploy
-zip -r deploy/deploy.zip .next package.json
+zip -r deploy/deploy.zip .next package.json .env

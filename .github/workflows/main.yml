@@ -41,6 +41,9 @@ jobs:
       - name: Linting check
         run: yarn lint
 
+      - name: Build product
+        run: yarn build
+
       - name: Pack
         run: yarn zip
 

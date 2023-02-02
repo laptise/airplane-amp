@@ -4,7 +4,12 @@ dotenv.config();
 const load = (key) => {
   const value = process.env[key];
   console.log(`${key}: ${value}`);
-  return value;
+  if (value) {
+    return value;
+  } else {
+    console.log(`${key}: SAMPLE (INSTEAD)`);
+    return "SAMPLE";
+  }
 };
 
 /**

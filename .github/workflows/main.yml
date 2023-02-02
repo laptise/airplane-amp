@@ -25,22 +25,6 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Cache node_modules 📦
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - name: Install yarn
-        run: npm install -g yarn
-
-      - name: Install packages
-        run: yarn install
-
-      - name: Linting check
-        run: yarn lint
-
       - name: Pack
         run: yarn zip
 

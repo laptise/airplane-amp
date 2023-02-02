@@ -1,3 +1,3 @@
 npm install
-next build
-next start
+npx next build
+npx next start

@@ -12,6 +12,10 @@ const useUserPool = () => {
 
 export const useAuth = () => {
   const userPool = useUserPool();
-  const signUp = (username: string, password: string) => userPool?.signUp;
+  const signUp = (username: string, password: string) =>
+    userPool?.signUp(username, password, [], [], (e, s) => {
+      console.log(e);
+      console.log(s);
+    });
   return { signUp };
 };

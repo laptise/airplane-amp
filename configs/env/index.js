@@ -21,6 +21,7 @@ const publicRuntimeConfig = {
     userPoolId: load("COGNITO_USER_POOL_ID"),
     issuer: load("COGNITO_DOMAIN"),
   },
+  nest: load("NEST_API"),
 };
 
 module.exports = publicRuntimeConfig;

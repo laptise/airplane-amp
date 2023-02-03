@@ -6,4 +6,5 @@ export type CognitoEnvs = {
 
 export type PublicRuntimeConfig = {
   cognito: CognitoEnvs;
+  nest: string;
 };

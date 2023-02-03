@@ -9,31 +9,28 @@ import * as Yup from "yup";
 type Payload = {
   email: string;
   password: string;
-  passwordConfirm: string;
 };
 const validation = Yup.object().shape({
   email: Yup.string().email().required(),
   password: Yup.string().required(),
-  passwordConfirm: Yup.string()
-    .required()
-    .equals([Yup.ref("password")]),
 });
 
 const MainTop = () => {
-  const { signUp } = useAuth();
-  const onSubmit: FormikFormSubmitHandler<Payload> = ({
+  const { singIn } = useAuth();
+  const onSubmit: FormikFormSubmitHandler<Payload> = async ({
     values: { email, password },
   }) => {
-    signUp(email, password);
+    const session = await singIn(email, password);
+    console.log(session);
   };
   return (
     <DefaultLayout>
       <FormikForm<Payload>
-        value={{ email: "", password: "", passwordConfirm: "" }}
+        value={{ email: "", password: "" }}
         validationSchema={validation}
         onSubmit={onSubmit}
       >
-        {({ fieldProps, formik: { values, submitForm, isValid, errors } }) => (
+        {({ fieldProps, formik: { submitForm, isValid, errors } }) => (
           <Stack gap={2}>
             <FlexCol>会員登録</FlexCol>
             <TextField
@@ -49,19 +46,12 @@ const MainTop = () => {
               error={!!errors.password}
               {...fieldProps("password")}
             />
-            <TextField
-              label="パスワード確認"
-              size="medium"
-              type={"password"}
-              error={!!errors.passwordConfirm}
-              {...fieldProps("passwordConfirm")}
-            />
             <Button
               disabled={!isValid}
               variant="contained"
               onClick={submitForm}
             >
-              登録
+              ログイン
             </Button>
           </Stack>
         )}

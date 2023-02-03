@@ -13,9 +13,14 @@ const useUserPool = () => {
 export const useAuth = () => {
   const userPool = useUserPool();
   const signUp = (username: string, password: string) =>
-    userPool?.signUp(username, password, [], [], (e, s) => {
-      console.log(e);
-      console.log(s);
+    new Promise((res, rej) => {
+      userPool?.signUp(username, password, [], [], (e, r) => {
+        if (r) {
+          res(r.user);
+        } else {
+          rej();
+        }
+      });
     });
   return { signUp };
 };
